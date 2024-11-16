@@ -50,10 +50,6 @@ function OpenbennysActionsMenu()
 		end)
 	end
 
-	AbdelRMBUI.Button("bennys_actions", "Quitter le menu", function()
-		AbdelRMBUI.CloseMenu("bennys", "actions")
-	end)
-
 	AbdelRMBUI.OpenMenu("bennys", "actions")
 end
 
@@ -63,7 +59,7 @@ end
 function OpenVehicleListMenu()
 	if Config.EnableSocietyOwnedVehicles then
 		ESX.TriggerServerCallback('esx_society:getVehiclesInGarage', function(vehicles)
-			AbdelRMBUI.CreateMenu("vehicle", "spawner", "Choisissez un véhicule")
+			AbdelRMBUI.CreateMenu("vehicle", "spawner", "Choisissez un véhicule", "bennys_actions")
 
 			for i = 1, #vehicles, 1 do
 				local vehicleLabel = GetDisplayNameFromVehicleModel(vehicles[i].model) ..
@@ -94,7 +90,7 @@ function SpawnVehicle(vehicleProps)
 end
 
 function OpenDefaultVehicleMenu()
-	AbdelRMBUI.CreateMenu("spawn", "vehicle", "Choisissez un véhicule")
+	AbdelRMBUI.CreateMenu("spawn", "vehicle", "Choisissez un véhicule", "bennys_actions")
 	AbdelRMBUI.Button("spawn_vehicle", "Flatbed", function()
 		SpawnServiceVehicle("flatbed")
 		AbdelRMBUI.CloseMenu("spawn", "vehicle")
@@ -214,9 +210,6 @@ function OpenbennysHarvestMenu()
 	AbdelRMBUI.Button("HarvestMenu_mainMenu", "Outil de carosserie", function()
 		TriggerServerEvent('AbdelRMB_bennysjob:startHarvest3')
 	end)
-	AbdelRMBUI.Button("HarvestMenu_mainMenu", "Quitter le menu", function()
-		AbdelRMBUI.CloseMenu("HarvestMenu", "mainMenu")
-	end)
 
 	AbdelRMBUI.OpenMenu("HarvestMenu", "mainMenu")
 end
@@ -236,9 +229,6 @@ function OpenbennysCraftMenu()
 	end)
 	AbdelRMBUI.Button("Craft_mainMenu", "Kit de carosserie", function()
 		TriggerServerEvent('AbdelRMB_bennysjob:startCraft3')
-	end)
-	AbdelRMBUI.Button("Craft_mainMenu", "Quitter le menu", function()
-		AbdelRMBUI.CloseMenu("Craft", "mainMenu")
 	end)
 
 	AbdelRMBUI.OpenMenu("Craft", "mainMenu")
@@ -342,10 +332,6 @@ function OpenMobilebennysActionsMenu()
 		else
 			TriggerEvent('AbdelRMB:Notify', 'Vous devez être dans un flatbed pour remorquer un véhicule !', 'error', 5000)
 		end
-	end)
-
-	AbdelRMBUI.Button("F6_mainMenu", "Quitter le menu", function()
-		AbdelRMBUI.CloseMenu("F6", "mainMenu")
 	end)
 
 	local invoiceAmount = 0

@@ -66,7 +66,6 @@ function OpenVehicleListMenu()
 					' [' .. vehicles[i].plate .. ']'
 				AbdelRMBUI.Button("vehicle_spawner", vehicleLabel, function()
 					SpawnVehicle(vehicles[i])
-					AbdelRMBUI.CloseMenu("vehicle", "spawner")
 				end)
 			end
 

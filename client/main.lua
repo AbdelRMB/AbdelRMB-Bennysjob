@@ -101,7 +101,9 @@ function OpenDefaultVehicleMenu()
 	end)
 
 	if Config.EnablePlayerManagement and ESX.PlayerData.job and (ESX.PlayerData.job.grade_name == 'boss' or ESX.PlayerData.job.grade_name == 'chief' or ESX.PlayerData.job.grade_name == 'experimente') then
-		AbdelRMBUI.Button("spawn_vehicle", "SlamVan", function() SpawnServiceVehicle("slamvan3") end)
+		AbdelRMBUI.Button("spawn_vehicle", "SlamVan", function() 
+			SpawnServiceVehicle("slamvan3") end)
+			AbdelRMBUI.CloseMenu("spawn", "vehicle")
 	end
 
 	AbdelRMBUI.Button("spawn_vehicle", "Revenir au menu principal", function()
